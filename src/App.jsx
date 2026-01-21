@@ -2,20 +2,20 @@ import { useFormInput } from './hooks/useFormInput'
 import './App.css'
 
 function App() {
-  const firstNameProps = useFormInput('yamada');
-  const lastNameProps = useFormInput('taro');
+  const [firstName, handleFirstNameChange] = useFormInput('yamada');
+  const [lastName, handleLastNameChange] = useFormInput('taro');
 
   return (
     <>
       <label>
         First name:
-        <input {...firstNameProps} />
+        <input value={firstName} onChange={handleFirstNameChange} />
       </label>
       <label>
         Last name:
-        <input {...lastNameProps} />
+        <input value={lastName} onChange={handleLastNameChange} />
       </label>
-      <p><b>Good morning, {firstNameProps.value} {lastNameProps.value}.</b></p>
+      <p><b>Good morning, {firstName} {lastName}.</b></p>
     </>
   )
 }
